@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#333333"
+    tools:context=".GameActivity">
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/gameView"
+        app:layout_constraintEnd_toEndOf="@+id/gameView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="score: 123123" />
+
+    <TextView
+        android:id="@+id/levelText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/gameView"
+        app:layout_constraintStart_toStartOf="@+id/gameView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="level: 123123" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/controlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gameView">
+
+        <ImageView
+            android:id="@+id/leftButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#222222"
+            android:src="@drawable/arrow_left"
+            app:layout_constraintEnd_toStartOf="@id/upButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/upButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="#222222"
+
+            android:src="@drawable/arrow_up"
+            app:layout_constraintEnd_toStartOf="@+id/downButton"
+            app:layout_constraintStart_toEndOf="@+id/leftButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/downButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:background="#222222"
+            android:src="@drawable/arrow_down"
+            app:layout_constraintEnd_toStartOf="@+id/rightButton"
+            app:layout_constraintStart_toEndOf="@id/upButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/rightButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+
+            android:background="#222222"
+            android:src="@drawable/arrow_right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/downButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.example.tetris.GameView
+        android:id="@+id/gameView"
+        android:layout_width="300dp"
+        android:layout_height="600dp"
+        app:layout_constraintBottom_toTopOf="@id/controlPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scoreText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
